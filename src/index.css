@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.router__link {
+    margin: 0 10px;
+    text-decoration: none;
+    color: blue;
+}
+.router__link:hover {
+    text-decoration: underline;
+}
+nav {
+    margin-bottom: 20px;
+}
+nav a {
+    color: #42b983;
+}
