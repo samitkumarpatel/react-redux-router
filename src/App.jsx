@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route, Link, Outlet } from 'react-router-dom';
+import { Routes, Route, Link, Outlet, useNavigate } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import { useSelector, useDispatch } from 'react-redux';
@@ -21,10 +21,7 @@ function App() {
         <button onClick={() => dispatch(decrease())} style={{ marginLeft: 4 }}>Decrease</button>
       </div>
       <hr/>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <Outlet />
     </div>
   )
 }
