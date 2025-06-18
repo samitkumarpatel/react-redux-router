@@ -1,7 +1,5 @@
 import { useState } from 'react'
-import { Routes, Route, Link, Outlet, useNavigate } from 'react-router-dom';
-import Home from './Home';
-import About from './About';
+import { Link, Outlet } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { increase, decrease } from './store';
 import './App.css'
