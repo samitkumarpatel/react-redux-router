@@ -22,7 +22,6 @@ const router = createBrowserRouter([
       },
     ]
   },
-  ,
   {
     path: "*",
     element: <h1>[404] Oops! No Route Found ...</h1>
