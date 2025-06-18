@@ -14,38 +14,44 @@ export const { increase, decrease } = counterSlice.actions;
 
 
 // User slice to manage user data
-export const initializeUsers = createAsyncThunk(
-  'users/initializeUsers',
+export const fetchAllUser = createAsyncThunk(
+  'users/fetchAllUser',
   async () => {
     return fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())
-        .catch(error => {
-          console.error('Error fetching users:', error);
-          return [];
-        });
   }
 );
 
 const userSlice = createSlice({
   name: 'user',
-  initialState: { users: [] },
+  initialState: { 
+    users: [],
+    loading: false,
+    error: null, 
+},
   reducers: {
-    setInitialUsers: (state, action) => {
-      state.users = action.payload;
-    },
     removeUser: (state, action) => {
       console.log('Removing user with id:', action.payload);
       state.users = state.users.filter(user => user.id !== action.payload);
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(initializeUsers.fulfilled, (state, action) => {
+    builder.addCase(fetchAllUser.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(fetchAllUser.fulfilled, (state, action) => {
+      state.loading = false;
       state.users = action.payload;
+    });
+    builder.addCase(fetchAllUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
     });
   },
 });
 
-export const { setInitialUsers, removeUser } = userSlice.actions;
+export const { removeUser } = userSlice.actions;
 
 const store = configureStore({
   reducer: {

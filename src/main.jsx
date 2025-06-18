@@ -1,8 +1,8 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import { Provider, useDispatch } from 'react-redux';
-import store, { setInitialUsers } from './store';
+import { Provider } from 'react-redux';
+import store, { fetchAllUser } from './store';
 import { RouterProvider , createBrowserRouter} from 'react-router-dom';
 import Home from './Home.jsx';
 import About from './About.jsx';
@@ -29,13 +29,9 @@ const router = createBrowserRouter([
   {
     path: "/json-placeholder",
     Component: JsonPlaceholderHome,
+    HydrateFallback: () => null,
     loader: async() => {
-      //call the API to get the initial users
-      const response = await fetch('https://jsonplaceholder.typicode.com/users');
-      if (response.ok) {
-        const data = await response.json();
-        store.dispatch(setInitialUsers(data));
-      }
+      await store.dispatch(fetchAllUser());
       return { records: [] };
     },
     children: [
