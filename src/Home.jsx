@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div id='root__home'>
       <h2>Home</h2>
-      <p>Count: {count}</p>
+      <p>count vaule in store: {count}</p>
       <button onClick={() => dispatch(increase())}>Increase</button>
       <button onClick={() => dispatch(decrease())}>Decrease</button>
     </div>

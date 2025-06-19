@@ -11,10 +11,12 @@ function App() {
     <div>
       <h1>Vite + React</h1>
       <nav>
-        <Link className='router__link' to="/">Home</Link> | <Link className='router__link' to="/about">About</Link>
+        <Link className='router__link' to="/">Home</Link> 
+        <Link className='router__link' to="/about">About</Link> 
+        <Link className='router__link' to="/json-placeholder">json-placeholder</Link>
       </nav>
       <div style={{ margin: '1em 0' }}>
-        <p>Global: {count}</p>
+        <p>count vaule in store: {count}</p>
         <button onClick={() => dispatch(increase())} style={{ marginLeft: 8 }}>Increase</button>
         <button onClick={() => dispatch(decrease())} style={{ marginLeft: 4 }}>Decrease</button>
       </div>

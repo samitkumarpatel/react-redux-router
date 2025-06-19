@@ -5,14 +5,22 @@ body {
     
 }
 
+
+
 .router__link {
     margin: 0 10px;
+    color: darkblue;
     text-decoration: none;
-    color: blue;
+    font-weight: bold;
+    border: 2px solid darkblue;
+    padding: 5px;
+    border-radius: 5px;
 }
 .router__link:hover {
-    text-decoration: underline;
+    color: white;
+    background-color: darkblue;
 }
+
 nav {
     margin-bottom: 20px;
 }

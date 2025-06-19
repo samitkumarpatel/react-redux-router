@@ -7,13 +7,13 @@ export const JsonPlaceholderHome = () => {
   return (
     <div>
         <h1>JSON Placeholder Home</h1>
-        <Link to="/json-placeholder">Dashboard</Link> |
-        <Link to="/json-placeholder/users">Users</Link>
+        <Link className='router__link' to="/json-placeholder">Dashboard</Link> |
+        <Link className='router__link' to="/json-placeholder/users">Users</Link>
         <hr/>
         
         <Outlet />
         <hr/>
-        {/* <Link to="/">home</Link> */}
+        <Link to="/">back to home</Link>
     </div>
   )
 }
